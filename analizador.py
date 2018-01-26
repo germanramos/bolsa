@@ -1,7 +1,11 @@
 import xml.etree.ElementTree
 import sys
 
-e = xml.etree.ElementTree.parse('IBEX-19990101-20180125.xml').getroot()
+if len(sys.argv) != 5:
+    print("Uso: python analizar.py xml_file dia mes ano")
+    print("Ejemplo: python analizar IBEX-19990101-20180125.xml 8 11 2007")
+    print("Ejemplo: python analizar IBEX-19990101-20180125.xml 0 0 0")
+    exit(1)
 
 media = 0
 maximo = 0
@@ -9,16 +13,11 @@ maximo_fecha = "00/00/0000"
 minimo = 99999
 minimo_fecha = "00/00/0000"
 contador = 0
-desde_ano = 0
-desde_mes = 0
-desde_dia = 0
+desde_ano = int(sys.argv[4])
+desde_mes = int(sys.argv[3])
+desde_dia = int(sys.argv[2])
 
-if len(sys.argv) == 4:
-    print("Desde: ", sys.argv)
-    desde_ano = int(sys.argv[3])
-    desde_mes = int(sys.argv[2])
-    desde_dia = int(sys.argv[1])
-
+e = xml.etree.ElementTree.parse(sys.argv[1]).getroot()
 for atype in e.find('dataset').findall('set'):
     dia = int(atype.attrib.get("toolText")[1:3])
     mes = int(atype.attrib.get("toolText")[4:6])
