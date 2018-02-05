@@ -18,6 +18,9 @@ desde_mes = int(sys.argv[3])
 desde_dia = int(sys.argv[2])
 empresa = sys.argv[1][0:-4]
 
+#e = xml.etree.ElementTree.parse(ibex35_I.IB.html).getroot()
+#for atype in e.find('dataset').findall('set'):
+
 e = xml.etree.ElementTree.parse(sys.argv[1]).getroot()
 for atype in e.find('dataset').findall('set'):
     dia = int(atype.attrib.get("toolText")[1:3])

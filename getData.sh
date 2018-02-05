@@ -1,6 +1,8 @@
 FECHA=20070101
-#LLAVE=`curl --silent http://www.expansion.com/mercados/cotizaciones/indices/ibex35_I.IB.html | grep ";var llave" | cut -d '"' -f 6`
-LLAVE=`curl --silent http://www.expansion.com/mercados/cotizaciones/indices/ibex35_I.IB.html | grep ">var llave" | cut -d '"' -f 2`
+echo "Getting IBEX 35..."
+curl --silent http://www.expansion.com/mercados/cotizaciones/indices/ibex35_I.IB.html > ibex35_I.IB.html
+LLAVE=`cat ibex35_I.IB.html | grep ">var llave" | cut -d '"' -f 2`
+sleep 2
 
 echo "LLAVE: $LLAVE"
 echo "FECHA: $FECHA"
