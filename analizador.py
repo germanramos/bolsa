@@ -16,6 +16,7 @@ contador = 0
 desde_ano = int(sys.argv[4])
 desde_mes = int(sys.argv[3])
 desde_dia = int(sys.argv[2])
+empresa = sys.argv[1][0:-4]
 
 e = xml.etree.ElementTree.parse(sys.argv[1]).getroot()
 for atype in e.find('dataset').findall('set'):
@@ -40,6 +41,11 @@ for atype in e.find('dataset').findall('set'):
     if valor < minimo:
         minimo = valor
         minimo_fecha = '{}/{}/{}'.format(dia, mes, ano)
-print("Minimo({}): {}".format(minimo_fecha,minimo))
-print("Maximo({}): {}".format(maximo_fecha,maximo))
-print("Media: " + str(media/contador))
+
+#print("Minimo({}): {}".format(minimo_fecha,minimo))
+#print("Maximo({}): {}".format(maximo_fecha,maximo))
+#print("Media: " + str(media/contador))
+
+#printf("Empresa,Fecha minimo,Valor minimo,Fecha maximo,Valor maximo,Media Periodo")
+print("{},{},{},{},{},{}".format(empresa,minimo_fecha,minimo,maximo_fecha,maximo,str(media/contador)))
+
