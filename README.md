@@ -13,5 +13,6 @@ bash runAnalizador.sh
 
 ##Ejecutar manualmente para una empresa:
 ```
-python analizador.py datos/ACS.xml 8 11 2007
+cd datos
+python ../analizador.py M.ACS.xml 8 11 2007 26.4
 ```
