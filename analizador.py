@@ -51,4 +51,4 @@ media = media_acumulada/contador
 valoracion_por_media=int(valor_actual*100/media)
 valoracion_por_maxmin=int((valor_actual-minimo)*100/(maximo-minimo))
 
-print("{},{},{},{},{},{},{}".format(minimo_fecha,minimo,maximo_fecha,maximo,media,valoracion_por_media,valoracion_por_maxmin))
+print("{},{},{},{},{},{},{}".format(round(media,3),round(minimo,3),round(maximo,3),valoracion_por_media,valoracion_por_maxmin,minimo_fecha,maximo_fecha))

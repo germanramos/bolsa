@@ -3,7 +3,7 @@ DIA=8
 MES=11
 ANO=2007
 
-echo "Empresa,Valor Actual,Fecha minimo,Valor minimo,Fecha maximo,Valor maximo,Periodo Media"
+echo "Empresa,Actual,Media,Minimo,Maximo,Val por media,Val por maxmin,Fecha minimo,Fecha maximo"
 cd datos
 for i in *.xml; do
 	filename=$(basename "$i")
