@@ -1,6 +1,8 @@
 FECHA=20070101
+DATE=$(date  +"%Y%m%d")
 
-mkdir -p datos
+mkdir -p datos.${DATE}
+ln -F -s datos.${DATE} datos
 cd datos
 
 echo "Getting IBEX 35..."
